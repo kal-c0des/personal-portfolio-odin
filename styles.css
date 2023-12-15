@@ -64,7 +64,10 @@ h1 {
   font-size: 4.5rem;
   color: var(--clr-white);
   position: absolute;
-  top: 400px;
+  top: 360px;
+  margin-left: 0.75rem;
+  margin-right: 1.2rem;
+  text-wrap: wrap;
 }
 
 .about_me {
