@@ -19,27 +19,37 @@
   --box-shadow: 5px 5px 12px 0px #0000004d;
 }
 
-.main_container {
+body {
   min-width: 320px;
   max-width: 1280px;
   margin: 0 auto;
   background-color: var(--clr-light-grn);
 }
 
-.header_container {
+header {
   display: grid;
   justify-items: center;
-  background-color: var(--clr-dark-grn);
   position: relative;
 }
 
-.header_img {
-  width: 85vw;
-  justify-self: center;
-  padding-top: 1rem;
+.bg-shaped {
+  background-color: var(--clr-dark-grn);
+  clip-path: polygon(0% 0%, 100% 0%, 100% 50%, 0% 100%);
+  width: 100vw;
+  height: 58vh;
+  z-index: -2;
+  position: absolute;
+  top: 0;
 }
 
-.prof-pic-1 {
+.header-img {
+  width: 85vw;
+  justify-self: center;
+  margin-top: 1.5rem;
+  box-shadow: 0px 0px 12px 6px rgba(0, 0, 0, 0.15);
+}
+
+.profile-pic {
   width: 100%;
 }
 
@@ -51,9 +61,10 @@ h2,
 }
 
 h1 {
+  font-size: 4.5rem;
+  color: var(--clr-white);
   position: absolute;
-  top: 235px;
-  font-size: 52px;
+  top: 400px;
 }
 
 .about_me {
