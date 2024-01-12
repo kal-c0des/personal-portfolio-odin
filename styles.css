@@ -53,7 +53,6 @@ header {
 
 .profile-pic {
   width: 100%;
-  /* height: 100%; */
   border-radius: var(--radius);
 }
 
@@ -205,6 +204,63 @@ p.phone {
   width: 48px;
 }
 
-.prof-pic-2 {
+.footer_img {
+  height: 500px;
   width: 100vw;
+}
+
+.prof-pic-2 {
+  height: 100%;
+  width: inherit;
+}
+
+/* Tablets */
+@media (min-width: 768px) {
+  header {
+    display: block;
+    width: 100vw;
+  }
+
+  .main-photo-cont {
+    padding: 2.5rem;
+  }
+
+  .header-img {
+    position: relative;
+    width: 50vw;
+    float: left;
+    z-index: 3;
+  }
+
+  h1 {
+    bottom: auto;
+    left: auto;
+    top: 64px;
+    right: 100px;
+    z-index: 4;
+  }
+
+  .about_me {
+    background-color: var(--clr-white);
+    margin-top: 5rem;
+    margin-left: 10rem;
+    z-index: 2;
+  }
+
+  .about_icons {
+    display: none;
+  }
+
+  .projects_container {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+  }
+}
+
+h1 {
+  text-align: left;
+}
+
+/* Desktop */
+@media (min-width: 1200px) {
 }
