@@ -1,3 +1,8 @@
+/* TODO: Fix MOBILE VIEW profile pic not aligning correctly with the container */
+/* TODO: Fix TABLET VIEW about text positioning, currently being overlapped by profile pic */
+/* TODO: Add DESKTOP media query */
+/* TODO: Test responsiveness, adjust existing media query min-max sizes if needed */
+
 * {
   padding: 0;
   margin: 0;
@@ -29,17 +34,7 @@ body {
 header {
   display: grid;
   justify-items: center;
-  position: relative;
-}
-
-.bg-shaped {
-  background-color: var(--clr-dark-grn);
-  clip-path: polygon(0% 0%, 100% 0%, 100% 50%, 0% 100%);
-  width: 100vw;
-  height: 58vh;
-  z-index: -2;
-  position: absolute;
-  top: 0;
+  /* position: relative; */
 }
 
 .header-img {
@@ -51,8 +46,9 @@ header {
   box-shadow: 0px 0px 12px 6px rgba(0, 0, 0, 0.25);
 }
 
-.profile-pic {
-  width: 100%;
+.mobile-profile-pic {
+  position: inherit;
+  height: 100%;
   border-radius: var(--radius);
 }
 
@@ -73,7 +69,7 @@ h1 {
   text-wrap: wrap;
 }
 
-.about_me {
+.about-me {
   display: grid;
   justify-items: center;
   width: 90vw;
@@ -86,8 +82,18 @@ h2 {
   text-align: center;
 }
 
-.about_icons {
+.about-icons {
   margin-bottom: 2rem;
+}
+
+.bg-shaped {
+  background-color: var(--clr-dark-grn);
+  clip-path: polygon(0% 0%, 100% 0%, 100% 50%, 0% 100%);
+  width: 100vw;
+  height: 58vh;
+  z-index: -2;
+  position: absolute;
+  top: 0;
 }
 
 .work {
@@ -95,7 +101,7 @@ h2 {
 }
 
 p,
-.project_info {
+.project-info {
   font-family: var(--font-fam-roboto);
 }
 
@@ -106,11 +112,11 @@ p.about {
   margin-bottom: 0.75rem;
 }
 
-.about_svg {
+.about-svg {
   width: 40px;
 }
 
-.projects_container {
+.projects-container {
   display: grid;
   justify-items: center;
   gap: 3rem;
@@ -123,13 +129,13 @@ p.about {
   border-radius: var(--radius);
 }
 
-.proj_img {
+.proj-img {
   width: 100%;
   border-top-left-radius: var(--radius);
   border-top-right-radius: var(--radius);
 }
 
-.project_name {
+.project-name {
   display: grid;
   grid-template-rows: 1;
   grid-template-columns: 2fr 1fr;
@@ -145,34 +151,34 @@ p.about {
   padding-left: 1rem;
 }
 
-.project_icons {
+.project-icons {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-areas: "github opens";
   justify-items: space-between;
 }
 
-.project_svg {
+.project-svg {
   width: 24px;
   grid-area: icons;
 }
 
-.git_svg {
+.git-svg {
   grid-area: github;
   justify-self: right;
 }
 
-.open_svg {
+.open-svg {
   grid-area: opens;
   justify-self: center;
 }
 
-.project_info {
+.project-info {
   padding: 1rem;
   padding-bottom: 1.5rem;
 }
 
-.contact_container {
+.contact-container {
   display: grid;
   justify-items: center;
   margin-top: 3rem;
@@ -181,7 +187,7 @@ p.about {
   color: var(--clr-white);
 }
 
-.contact_info {
+.contact-info {
   padding: 1rem;
   font-weight: var(--font-weight100);
 }
@@ -196,71 +202,155 @@ p.phone {
   padding-bottom: 0.25rem;
 }
 
-.contact_icons {
+.contact-icons {
   margin-bottom: 4rem;
 }
 
-.contact_svg {
+.contact-svg {
   width: 48px;
 }
 
-.footer_img {
+.footer-img {
   height: 500px;
   width: 100vw;
 }
 
-.prof-pic-2 {
+.footer-picture {
   height: 100%;
   width: inherit;
 }
 
-/* Tablets */
+/* Mobile */
+@media (max-width: 767px) {
+  .header-img {
+    width: 100vw;
+    float: none;
+    z-index: 3;
+  }
+
+  .tablet-desktop-img {
+    display: none;
+  }
+}
+
+/* Tablet */
 @media (min-width: 768px) {
   header {
     display: block;
     width: 100vw;
+    position: relative;
+    z-index: 1;
   }
 
   .main-photo-cont {
     padding: 2.5rem;
-  }
-
-  .header-img {
     position: relative;
-    width: 50vw;
-    float: left;
     z-index: 3;
   }
 
-  h1 {
-    bottom: auto;
-    left: auto;
-    top: 64px;
-    right: 100px;
+  .header-img {
+    width: 50vw;
+    float: left;
+    height: auto;
+    position: relative;
     z-index: 4;
   }
 
-  .about_me {
-    background-color: var(--clr-white);
-    margin-top: 5rem;
-    margin-left: 10rem;
-    z-index: 2;
+  .tablet-desktop-img {
+    display: block;
+    position: inherit;
+    width: 50vw;
   }
 
-  .about_icons {
+  .mobile-profile-pic {
     display: none;
   }
 
-  .projects_container {
+  h1 {
+    text-align: left;
+    top: 6rem;
+    bottom: auto;
+    left: auto;
+    right: 2.5rem;
+    position: absolute;
+    z-index: 5;
+  }
+
+  .about-me {
+    background-color: var(--clr-white);
+    position: absolute;
+    top: 8rem;
+    left: 4.5rem;
+    width: 80vw;
+    height: 30rem;
+    z-index: 2;
+  }
+
+  h2 {
+    position: absolute;
+    top: 3rem;
+    right: 3.25rem;
+  }
+
+  .about {
+    position: absolute;
+    top: 6rem;
+    text-overflow: inherit;
+  }
+
+  .about-icons {
+    display: none;
+  }
+
+  h2.my-work {
+    position: absolute;
+    top: 46rem;
+    right: 33.5rem;
+  }
+
+  .projects-container {
+    position: absolute;
+    top: 48rem;
+    left: 3.5rem;
+    /* right: 5rem; */
+    width: 85%;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto;
   }
-}
 
-h1 {
-  text-align: left;
+  .contact-container {
+    position: relative;
+    top: 100rem;
+    height: 40vh;
+    width: 100vw;
+  }
+
+  .contact-title {
+    position: inherit;
+    right: 14.5rem;
+  }
+
+  .contact-info {
+    position: inherit;
+    top: 1.25rem;
+    right: 8.75rem;
+    width: 50vw;
+  }
+
+  .contact-icons {
+    position: inherit;
+    right: 16.25rem;
+  }
+
+  .footer-img {
+    position: relative;
+    top: 72rem;
+    height: 34vh;
+    width: 36vw;
+    left: 28.5rem;
+  }
 }
 
 /* Desktop */
-@media (min-width: 1200px) {
+@media (min-width: 1000px) {
 }
